@@ -7,8 +7,8 @@
 #include <math.h>
 #include <GLFW/glfw3.h>
 
-BaseScene::BaseScene(){
-	//this->framework = framework;
+BaseScene::BaseScene(Framework3D* framework){
+	this->framework = framework;
 }
 
 void BaseScene::init(){
@@ -39,7 +39,7 @@ Camera* BaseScene::getCamera() { return camera; }
 
 void BaseScene::setMouseGrabbed(bool mouseGrabbed){
 	this->mouseGrabbed = mouseGrabbed;
-	//glfwSetInputMode();
+	glfwSetInputMode(getFramework()->getWindow(), GLFW_CURSOR, mouseGrabbed ? GLFW_CURSOR_DISABLED : GLFW_CURSOR_NORMAL);
 }
 
 void BaseScene::translateCamera(){

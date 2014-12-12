@@ -90,8 +90,12 @@ void Framework3D::start(){
 		clearGL();
 		
 		glfwGetCursorPos(window, &nx, &ny);
+		dx = nx-x;
+		dy = ny-y;
+		x=nx;
+		y=ny;
 		
-		dx=nx-x;dy=ny-y;x=nx;y=ny;
+		/*dx=nx-x;dy=ny-y;x=nx;y=ny;
 		if(getScene()->isMouseGrabbed()){
 			if(nx < 1){
 				glfwSetCursorPos(window, getWidth()-2, ny);
@@ -101,12 +105,18 @@ void Framework3D::start(){
 				glfwSetCursorPos(window, 2, ny);
 				dx = 0;
 			}
-		}
+		}*/
 		
 		getScene()->mouseX = x;getScene()->mouseY = y;getScene()->mouseDX = dx;getScene()->mouseDY = dy;
 		
 		for(int i=0;i<512;i++){
 			getScene()->keys[i] = glfwGetKey(window, i);
+		}
+		for(int i=0;i<16;i++){
+			int v = glfwGetMouseButton(getWindow(), i);
+			if(v == GLFW_PRESS) getScene()->mouse[i] = true;
+			if(v == GLFW_RELEASE) getScene()->mouse[i] = false;
+			//getScene()->mouse[i] = 
 		}
 		getScene()->update();
 		

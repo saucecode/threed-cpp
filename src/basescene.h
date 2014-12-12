@@ -18,8 +18,9 @@ private:
 public:
 	double mouseX, mouseY, mouseDX, mouseDY;
 	bool keys[512];
-	//BaseScene(Framework3D* framework);
-	BaseScene();
+	bool mouse[16];
+	BaseScene(Framework3D* framework);
+	//BaseScene();
 	
 	void translateCamera();
 	

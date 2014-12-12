@@ -39,8 +39,8 @@ void Camera::pointCameraAt(float tx, float ty, float tz){
 }
 
 void Camera::mouseLook(double dx, double dy){
-	float mouseDX = dx * 0.8 * 0.16 * 0.1;
-	float mouseDY = dy * 0.8 * 0.16 * 0.1;
+	float mouseDX = dx * 0.8 * 0.16 * 0.05;
+	float mouseDY = dy * 0.8 * 0.16 * 0.05;
 	if (yaw + mouseDX >= 2.0*M_PI) {
 		yaw = yaw + mouseDX - (2.0*M_PI);
 	} else if (yaw + mouseDX < 0) {

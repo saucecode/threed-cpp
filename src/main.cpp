@@ -11,6 +11,10 @@
 
 class MyScene : public BaseScene {
 public:
+	MyScene(Framework3D* framework) : BaseScene(framework) {
+		// pass
+	}
+	
 	virtual void init(){
 		setCamera(new Camera(0.0,0.0,0.0));
 		setMouseGrabbed(true);
@@ -19,7 +23,7 @@ public:
 	}
 	
 	virtual void loadResources(){
-		getResourceManager()->loadTexturePNG("res/spray.png", 0);
+		//getResourceManager()->loadTexturePNG("res/spray.png", 0);
 	}
 	
 	virtual void update(){
@@ -27,16 +31,18 @@ public:
 			printf("Escape!\n");
 			setCloseRequested(true);
 		}
+		if(mouse[0]) setMouseGrabbed(true);
+		if(mouse[1]) setMouseGrabbed(false);
 	}
 	
 	virtual void render3D(){
-		translateCamera();
 		if(isMouseGrabbed())
 			getCamera()->mouseLook(mouseDX, -mouseDY);
+		translateCamera();
 		
 		glColor3f(1.0,1.0,1.0);
 		//getResourceManager()->useTexture(0);
-		getResourceManager()->useTexture(0);
+		//getResourceManager()->useTexture(0);
 		drawBox(3,-1,3, 6,1,6);
 		unbindTexture();
 		drawBox(3,1.5,3, 6,2.5,6);
@@ -50,7 +56,7 @@ public:
 
 int main(int argc, char** argv){
 	Framework3D framework("threed", 1280, 720);
-	BaseScene* baseScene = new MyScene();
+	BaseScene* baseScene = new MyScene(&framework);
 	
 	framework.setFPS(60);
 	framework.setFOV(90);
