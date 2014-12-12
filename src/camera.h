@@ -4,6 +4,8 @@
 #include "vector3.h"
 #include "camera.h"
 
+class BaseScene;
+
 class Camera : public Vector3 {
 private:
 	float pitch, yaw;
