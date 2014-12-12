@@ -1,10 +1,13 @@
 #include "framework3D.h"
+#include "basescene.h"
 #include "resourcemanager.h"
 #include <GLFW/glfw3.h>
 #include <GL/glu.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <string>
+
+
 
 Framework3D::Framework3D(std::string title, int width, int height){
 	this->title = title;

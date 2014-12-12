@@ -9,7 +9,7 @@
 #include "resourcemanager.h"
 
 
-class MyScene : public BaseScene(Framework* framework) {
+class MyScene : public BaseScene {
 public:
 	virtual void init(){
 		setCamera(new Camera(0.0,0.0,0.0));
@@ -50,7 +50,7 @@ public:
 
 int main(int argc, char** argv){
 	Framework3D framework("threed", 1280, 720);
-	BaseScene* baseScene = new MyScene(&framework);
+	BaseScene* baseScene = new MyScene();
 	
 	framework.setFPS(60);
 	framework.setFOV(90);

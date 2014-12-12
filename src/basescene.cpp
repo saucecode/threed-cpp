@@ -7,8 +7,8 @@
 #include <math.h>
 #include <GLFW/glfw3.h>
 
-BaseScene::BaseScene(Framework3D* framework){
-	this->framework = framework;
+BaseScene::BaseScene(){
+	//this->framework = framework;
 }
 
 void BaseScene::init(){

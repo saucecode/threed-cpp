@@ -3,9 +3,11 @@
 
 #include <string>
 #include <GLFW/glfw3.h>
-#include "basescene.h"
+
 #include "framework3D.h"
 #include "resourcemanager.h"
+
+class BaseScene;
 
 class Framework3D {
 private:

@@ -6,7 +6,8 @@
 #include "camera.h"
 #include "basescene.h"
 #include "resourcemanager.h"
-#include "framework3D.h"
+
+class Framework3D;
 
 class BaseScene {
 private:
@@ -17,7 +18,8 @@ private:
 public:
 	double mouseX, mouseY, mouseDX, mouseDY;
 	bool keys[512];
-	BaseScene(Framework3D* framework);
+	//BaseScene(Framework3D* framework);
+	BaseScene();
 	
 	void translateCamera();
 	
